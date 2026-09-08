@@ -25,6 +25,7 @@ jobs:
           test -f "assets/fonts/shekasteh v2.001.woff"
           test -f "assets/fonts/shekasteh v2.001.ttf"
           test -f "assets/fonts/shekasteh v2.001.eot"
+          test -f "assets/js/home-sections.js"
           python - <<'PY'
           from pathlib import Path
           css_path=Path('index.css')
@@ -43,10 +44,10 @@ jobs:
           enhancement='<link rel="stylesheet" href="assets/css/home-sections.css?v=1">'
           if enhancement not in html:
               html=html.replace('</head>',enhancement+'</head>',1)
-          script='<script src="assets/js/shell.js?v=5"></script>'
           import re
           html=re.sub(r'<script src="assets/js/shell\.js\?v=[^"]+"></script>','',html)
-          html=html.replace('</body>',script+'</body>',1)
+          html=re.sub(r'<script src="assets/js/home-sections\.js\?v=[^"]+"></script>','',html)
+          html=html.replace('</body>','<script src="assets/js/shell.js?v=6"></script><script src="assets/js/home-sections.js?v=1"></script></body>',1)
           html_path.write_text(html,encoding='utf-8')
           PY
       - name: Configure Pages
