@@ -40,15 +40,6 @@ jobs:
               html=html.replace('<link rel="stylesheet" href="index.css?v=3">',preload+'<link rel="stylesheet" href="index.css?v=5">',1)
           else:
               html=html.replace('index.css?v=3','index.css?v=5')
-          direct_css='<link rel="stylesheet" href="assets/css/collections.css?v=3">'
-          direct_data='<script src="data/ecosystem.js?v=3"></script>'
-          direct_app='<script src="assets/js/collections.js?v=3"></script>'
-          shell='<script src="assets/js/shell.js?v=3"></script>'
-          marker='assets/js/shell.js?v=3'
-          if marker not in html:
-              injection=direct_css+direct_data+direct_app+shell
-              html=html.replace('</body>',injection+'</body>',1)
-          html=html.replace('assets/js/shell.js?v=2','assets/js/shell.js?v=3')
           html_path.write_text(html,encoding='utf-8')
           PY
       - name: Configure Pages
