@@ -3,10 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="شرکت جامع راهبردی ارشد ایرانیان؛ معماری مادر برای راهبری، سرمایه‌گذاری، فناوری و توسعه کسب‌وکارها و پروژه‌ها">
+  <meta name="description" content="شرکت جامع راهبردی ارشد ایرانیان؛ اکوسیستمی برای راهبری، سرمایه‌گذاری، فناوری و توسعه ایده‌ها، شرکت‌ها، برندها و پروژه‌ها">
   <title>شرکت جامع راهبردی ارشد ایرانیان</title>
   <link rel="icon" href="assets/images/favicon.ico">
   <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    .home-search{padding:45px 0;background:linear-gradient(135deg,#f5faff,#fffdf8)}
+    .home-search-box{display:flex;gap:10px;margin-top:22px;background:#fff;border:1px solid #dce6f1;border-radius:24px;padding:9px;box-shadow:0 16px 45px rgba(27,67,108,.1)}
+    .home-search-box input{flex:1;border:0;outline:0;font:inherit;font-size:18px;padding:16px 18px;background:transparent}
+    .home-search-box a{display:flex;align-items:center;white-space:nowrap}
+    .search-hints{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px;color:#718093;font-size:13px}
+    .search-hints span{background:#fff;border:1px solid #e1e8f0;border-radius:999px;padding:7px 11px}
+    @media(max-width:650px){.home-search-box{display:block}.home-search-box a{justify-content:center;margin-top:8px}}
+  </style>
 </head>
 <body>
   <header class="top">
@@ -24,6 +33,7 @@
         <a href="pages/strategy.html">راهبرد</a>
         <a href="pages/ecosystem.html">اکوسیستم</a>
         <a href="pages/projects.html">پروژه‌ها</a>
+        <a href="pages/search.html">جستجو</a>
         <a href="pages/investment.html">سرمایه‌گذاری</a>
         <a href="pages/innovation.html">نوآوری</a>
         <a href="pages/contact.html">ارتباط</a>
@@ -37,16 +47,16 @@
         <div>
           <span class="eyebrow">راهبری راهبردی · سرمایه‌گذاری · فناوری · توسعه</span>
           <h1>یک شرکت مادر برای ساختن <span>یک اکوسیستم</span></h1>
-          <p>شرکت جامع راهبردی ارشد ایرانیان، معماری مادر برای ایجاد، راهبری و توسعه شرکت‌ها، برندها، پروژه‌ها و سرمایه‌گذاری‌های منتخب است؛ جایی که هر ایده جدید، جایگاه خود را در یک نقشه بزرگ‌تر پیدا می‌کند.</p>
+          <p>شرکت جامع راهبردی ارشد ایرانیان، بستری برای شکل‌گیری، راهبری و توسعه ایده‌ها، شرکت‌ها، برندها، محصولات و پروژه‌های منتخب است؛ جایی که هر مسیر تازه می‌تواند به بخشی از یک آینده بزرگ‌تر تبدیل شود.</p>
           <div class="actions">
             <a class="btn btn-primary" href="pages/ecosystem.html">مشاهده اکوسیستم</a>
-            <a class="btn btn-light" href="pages/strategy.html">طرح جامع ۴۲ بخشی</a>
+            <a class="btn btn-light" href="pages/search.html">کشف در اقیانوس ارشد</a>
           </div>
           <div class="stats">
             <div class="stat"><strong>۴۲</strong><span>بخش راهبردی</span></div>
             <div class="stat"><strong>۲۲+</strong><span>حوزه اصلی</span></div>
             <div class="stat"><strong>۲۷۷</strong><span>محور توسعه</span></div>
-            <div class="stat"><strong>∞</strong><span>پروژه‌های آینده</span></div>
+            <div class="stat"><strong>∞</strong><span>ظرفیت‌های آینده</span></div>
           </div>
         </div>
         <div class="hero-art">
@@ -60,16 +70,42 @@
       </div>
     </section>
 
+    <section class="home-search">
+      <div class="wrap">
+        <div class="head">
+          <div>
+            <span class="kicker">جستجو و کشف</span>
+            <h2>در اقیانوس ارشد جستجو کنید</h2>
+          </div>
+          <p>از یک حوزه و پروژه تا یک ایده یا فرصت آینده؛ مسیر موردنظر خود را پیدا کنید.</p>
+        </div>
+        <div class="home-search-box">
+          <input id="homeSearch" type="search" placeholder="مثلاً: هوش مصنوعی، سرمایه‌گذاری، دانشگاه، چت، برند...">
+          <a class="btn btn-primary" id="homeSearchLink" href="pages/search.html">جستجوی جامع</a>
+        </div>
+        <div class="search-hints">
+          <span>پروژه‌ها</span>
+          <span>شرکت‌ها و برندها</span>
+          <span>حوزه‌های راهبردی</span>
+          <span>ایده‌ها و فرصت‌ها</span>
+          <span>محصولات و خدمات</span>
+        </div>
+      </div>
+    </section>
+
     <section>
       <div class="wrap">
         <div class="head">
-          <div><span class="kicker">فلسفه گروه</span><h2>پازل به‌تدریج کامل می‌شود</h2></div>
-          <p>پروژه‌ای که امروز ساخته می‌شود، می‌تواند فردا یک برند، شرکت، محصول یا بازوی تخصصی باشد. محورهایی که هنوز ساخته نشده‌اند نیز بخشی از نقشه آینده هستند.</p>
+          <div>
+            <span class="kicker">فلسفه گروه</span>
+            <h2>هر قطعه، آغاز یک مسیر تازه است</h2>
+          </div>
+          <p>پروژه‌ای که امروز ساخته می‌شود، می‌تواند فردا به یک برند، شرکت، محصول یا بازوی تخصصی تبدیل شود و در کنار دیگر اجزای اکوسیستم ارزش بیشتری ایجاد کند.</p>
         </div>
         <div class="grid grid-3">
-          <article class="card"><div class="iconbox">۱</div><h3>می‌دانیم کجا هستیم</h3><p>پروژه‌های موجود، دارایی‌های فکری و کسب‌وکارهای شکل‌گرفته در یک پرتفوی واحد ثبت می‌شوند.</p></article>
-          <article class="card"><div class="iconbox">۲</div><h3>می‌دانیم چه می‌خواهیم</h3><p>۴۲ بخش و ۲۷۷ محور، نقشه ظرفیت‌های توسعه و حوزه‌های آینده گروه را مشخص می‌کنند.</p></article>
-          <article class="card"><div class="iconbox">۳</div><h3>می‌دانیم بعداً چه بسازیم</h3><p>هر قطعه خالی، یک فرصت توسعه است؛ اولویت آن با راهبرد، بازار، منابع و هم‌افزایی تعیین می‌شود.</p></article>
+          <article class="card"><div class="iconbox">۱</div><h3>ایده به فرصت</h3><p>ایده‌ها، نیازها و فرصت‌های تازه در کنار ظرفیت‌های موجود دیده و ارزیابی می‌شوند.</p></article>
+          <article class="card"><div class="iconbox">۲</div><h3>فرصت به پروژه</h3><p>مسیرهای منتخب به پروژه‌هایی با هدف، مدل توسعه و جایگاه روشن در اکوسیستم تبدیل می‌شوند.</p></article>
+          <article class="card"><div class="iconbox">۳</div><h3>پروژه به ارزش</h3><p>پروژه‌های موفق می‌توانند به محصول، برند، شرکت، سرمایه‌گذاری یا یک بازوی تخصصی تبدیل شوند.</p></article>
         </div>
       </div>
     </section>
@@ -77,8 +113,11 @@
     <section class="darkband">
       <div class="wrap">
         <div class="head">
-          <div><span class="kicker">۲۲ حوزه اصلی</span><h2>نقشه جامع فعالیت‌ها</h2></div>
-          <p>این حوزه‌ها سبد مادر معماری شرکت هستند و هرکدام می‌توانند به ده‌ها محور، پروژه و کسب‌وکار تخصصی متصل شوند.</p>
+          <div>
+            <span class="kicker">۲۲ حوزه اصلی</span>
+            <h2>قلمروهای توسعه</h2>
+          </div>
+          <p>هر حوزه، یک دروازه برای شکل‌گیری پروژه‌ها، کسب‌وکارها و همکاری‌های جدید است.</p>
         </div>
         <div class="grid grid-4">
           <div class="darkcard"><h3>۰۱ · راهبری و مدیریت</h3><p>استراتژی، سازمان، پروژه، فرآیند و بهره‌وری.</p></div>
@@ -86,7 +125,7 @@
           <div class="darkcard"><h3>۰۳ · شرکت و برند</h3><p>ایجاد شرکت، برند، شعب، مشارکت و شبکه کسب‌وکار.</p></div>
           <div class="darkcard"><h3>۰۴ · نخبگان و ایده</h3><p>استعدادیابی، ایده‌پردازی و تجاری‌سازی.</p></div>
           <div class="darkcard"><h3>۰۵ · نوآوری و استارتاپ</h3><p>مرکز نوآوری، شتاب‌دهی و سرمایه‌گذاری فناورانه.</p></div>
-          <div class="darkcard"><h3>۰۶ · فناوری و تحول دیجیتال</h3><p>نرم‌افزار، پلتفرم، AI، داده و اتوماسیون.</p></div>
+          <div class="darkcard"><h3>۰۶ · فناوری و تحول دیجیتال</h3><p>نرم‌افزار، پلتفرم، هوش مصنوعی، داده و اتوماسیون.</p></div>
           <div class="darkcard"><h3>۰۷ · تجارت</h3><p>خرید، فروش، واردات، صادرات و توزیع.</p></div>
           <div class="darkcard"><h3>۰۸ · خرده‌فروشی</h3><p>فروشگاه، بازارگاه و تجارت الکترونیک.</p></div>
           <div class="darkcard"><h3>۰۹ · املاک و مسکن</h3><p>سرمایه‌گذاری، توسعه و مدیریت دارایی.</p></div>
@@ -104,7 +143,7 @@
           <div class="darkcard"><h3>۲۱ · بین‌المللی‌سازی</h3><p>صادرات، شبکه جهانی و پروژه‌های مشترک.</p></div>
           <div class="darkcard"><h3>۲۲ · آینده‌پژوهی</h3><p>رصد روندها و توسعه منطقه‌ای و آینده‌محور.</p></div>
         </div>
-        <div class="actions"><a class="btn btn-light" href="pages/strategy.html">مشاهده معماری راهبردی</a></div>
+        <div class="actions"><a class="btn btn-light" href="pages/strategy.html">ورود به طرح جامع</a></div>
       </div>
     </section>
 
@@ -112,7 +151,7 @@
       <div class="wrap">
         <div class="head">
           <div><span class="kicker">پروژه‌های واقعی</span><h2>آنچه تا امروز ساخته‌ایم</h2></div>
-          <p>فهرست پروژه‌ها ثابت نیست؛ با هر محصول جدید، این نقشه بزرگ‌تر می‌شود.</p>
+          <p>این نقشه ثابت نیست؛ هر پروژه جدید می‌تواند یک مسیر تازه به اکوسیستم اضافه کند.</p>
         </div>
         <div class="grid grid-3">
           <article class="card"><span class="number">فناوری</span><h3>ایرانیان چت و چتی‌ها</h3><p>پروژه پلتفرم ارتباطی و نمونه پایلوت آن.</p></article>
@@ -155,6 +194,7 @@
           <a href="pages/strategy.html">طرح جامع</a>
           <a href="pages/ecosystem.html">اکوسیستم</a>
           <a href="pages/projects.html">پروژه‌ها</a>
+          <a href="pages/search.html">جستجوی جامع</a>
         </div>
         <div>
           <h3>توسعه</h3>
@@ -166,5 +206,21 @@
       <div class="copy">© شرکت جامع راهبردی ارشد ایرانیان — کلیه حقوق محفوظ است.</div>
     </div>
   </footer>
+
+  <script>
+    const homeSearch = document.getElementById('homeSearch');
+    const homeSearchLink = document.getElementById('homeSearchLink');
+    function syncSearchLink() {
+      const query = encodeURIComponent(homeSearch.value.trim());
+      homeSearchLink.href = query ? `pages/search.html?q=${query}` : 'pages/search.html';
+    }
+    homeSearch.addEventListener('input', syncSearchLink);
+    homeSearch.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        syncSearchLink();
+        window.location.href = homeSearchLink.href;
+      }
+    });
+  </script>
 </body>
 </html>
