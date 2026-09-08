@@ -19,6 +19,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Validate and normalize local fonts
+        shell: bash
+        run: |
+          test -f "assets/fonts/shekasteh v2.001.woff"
+          test -f "assets/fonts/shekasteh v2.001.ttf"
+          test -f "assets/fonts/shekasteh v2.001.eot"
+          python - <<'PY'
+          from pathlib import Path
+          css_path=Path('index.css')
+          css=css_path.read_text(encoding='utf-8')
+          import_rule="@import url('https://v1.fontapi.ir/css/IranNastaliq');"
+          css=css.replace(import_rule,'')
+          css=import_rule+css
+          css=css.replace("url('assets/fonts/shekasteh%20v2.001.woff') format('woff')","url('assets/fonts/shekasteh%20v2.001.woff') format('woff')")
+          css_path.write_text(css,encoding='utf-8')
+          html_path=Path('index.html')
+          html=html_path.read_text(encoding='utf-8')
+          preload='<link rel="preload" href="assets/fonts/shekasteh%20v2.001.woff" as="font" type="font/woff" crossorigin>'
+          if preload not in html:
+              html=html.replace('<link rel="stylesheet" href="index.css?v=3">',preload+'<link rel="stylesheet" href="index.css?v=4">',1)
+          html_path.write_text(html,encoding='utf-8')
+          PY
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
