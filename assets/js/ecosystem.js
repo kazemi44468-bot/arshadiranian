@@ -1,45 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
   const data = window.ARSHAD_ECOSYSTEM;
   if (!data) return;
-
   const normalize = value => (value || '').toString().toLocaleLowerCase('fa-IR').replace(/ي/g,'ی').replace(/ك/g,'ک');
-  const all = [
-    ...data.domains.map(x => ({...x, type:'حوزه راهبردی', searchable:`${x.title} ${x.tags} ${x.desc}`})),
-    ...data.entities.map(x => ({...x, searchable:`${x.name} ${x.type} ${x.status} ${x.tags} ${x.desc}`})),
-    ...data.opportunities.map(x => ({...x, searchable:`${x.name} ${x.type} ${x.status} ${x.tags} ${x.desc}`}))
-  ];
-
-  function card(item) {
-    const href = item.url || '#';
-    const external = item.url ? ` target="_blank" rel="noopener"` : '';
-    return `<article class="discover-card"><div class="discover-top"><span class="pill">${item.type}</span><span class="status">${item.status || ''}</span></div><h3>${item.name || item.title}</h3><p>${item.desc || ''}</p><div class="discover-tags">${(item.tags || '').split(' ').slice(0,5).map(t => `<span>${t}</span>`).join('')}</div>${item.url ? `<a class="discover-link" href="${href}"${external}>مشاهده و ادامه مسیر ←</a>` : `<span class="discover-link muted">در مسیر توسعه</span>`}</article>`;
-  }
-
-  const searchInput = document.querySelector('[data-ecosystem-search]');
-  const resultBox = document.querySelector('[data-search-results]');
-  const countBox = document.querySelector('[data-search-count]');
-  const filterBox = document.querySelector('[data-search-filter]');
-
-  function render(query = '', filter = 'همه') {
-    const q = normalize(query.trim());
-    let results = all.filter(item => {
-      const matchesText = !q || normalize(item.searchable).includes(q);
-      const matchesFilter = filter === 'همه' || item.type === filter || (filter === 'پروژه‌ها' && ['پروژه','پلتفرم','محصول','زیست‌بوم','گروه'].includes(item.type));
-      return matchesText && matchesFilter;
-    });
-    if (countBox) countBox.textContent = `${results.length} نتیجه در اقیانوس ارشد`;
-    if (resultBox) resultBox.innerHTML = results.length ? results.map(card).join('') : `<div class="empty-state"><strong>نتیجه‌ای پیدا نشد</strong><p>عبارت دیگری را امتحان کنید یا فیلتر را تغییر دهید.</p></div>`;
-  }
-
-  if (searchInput) searchInput.addEventListener('input', () => render(searchInput.value, filterBox ? filterBox.value : 'همه'));
-  if (filterBox) filterBox.addEventListener('change', () => render(searchInput ? searchInput.value : '', filterBox.value));
-  render();
-
-  document.querySelectorAll('[data-domain-grid]').forEach(grid => {
-    grid.innerHTML = data.domains.map(d => `<article class="domain-card"><span>${d.id}</span><h3>${d.title}</h3><p>${d.desc}</p><small>${d.tags}</small></article>`).join('');
-  });
-
-  document.querySelectorAll('[data-entity-grid]').forEach(grid => {
-    grid.innerHTML = data.entities.map(card).join('');
-  });
+  const all = [...data.domains.map(x => ({...x, type:'حوزه راهبردی', searchable:`${x.title} ${x.tags} ${x.desc}`})),...data.entities.map(x => ({...x, searchable:`${x.name} ${x.type} ${x.status} ${x.tags} ${x.desc}`})),...data.opportunities.map(x => ({...x, searchable:`${x.name} ${x.type} ${x.status} ${x.tags} ${x.desc}`}))];
+  function card(item){const href=item.url||'#';const external=item.url?' target="_blank" rel="noopener"':'';return `<article class="discover-card"><div class="discover-top"><span class="pill">${item.type}</span><span class="status">${item.status||''}</span></div><h3>${item.name||item.title}</h3><p>${item.desc||''}</p><div class="discover-tags">${(item.tags||'').split(' ').slice(0,5).map(t=>`<span>${t}</span>`).join('')}</div>${item.url?`<a class="discover-link" href="${href}"${external}>مشاهده و ادامه مسیر ←</a>`:`<span class="discover-link muted">در مسیر توسعه</span>`}</article>`}
+  const searchInput=document.querySelector('[data-ecosystem-search]'),resultBox=document.querySelector('[data-search-results]'),countBox=document.querySelector('[data-search-count]'),filterBox=document.querySelector('[data-search-filter]');
+  function render(query='',filter='همه'){const q=normalize(query.trim());let results=all.filter(item=>{const matchesText=!q||normalize(item.searchable).includes(q);const matchesFilter=filter==='همه'||item.type===filter||(filter==='پروژه‌ها'&&['پروژه','پلتفرم','محصول','زیست‌بوم','گروه'].includes(item.type));return matchesText&&matchesFilter});if(countBox)countBox.textContent=`${results.length} نتیجه`;if(resultBox)resultBox.innerHTML=results.length?results.map(card).join(''):`<div class="empty-state"><strong>نتیجه‌ای پیدا نشد</strong><p>عبارت دیگری را امتحان کنید یا فیلتر را تغییر دهید.</p></div>`}
+  if(searchInput)searchInput.addEventListener('input',()=>render(searchInput.value,filterBox?filterBox.value:'همه'));if(filterBox)filterBox.addEventListener('change',()=>render(searchInput?searchInput.value:'',filterBox.value));render();
+  document.querySelectorAll('[data-domain-grid]').forEach(grid=>{grid.innerHTML=data.domains.map(d=>`<article class="domain-card"><span>${d.id}</span><h3>${d.title}</h3><p>${d.desc}</p><small>${d.tags}</small></article>`).join('')});
+  document.querySelectorAll('[data-entity-grid]').forEach(grid=>{grid.innerHTML=data.entities.map(card).join('')});
+  const sections=window.ARSHAD_STRATEGY_SECTIONS||[];document.querySelectorAll('[data-section-grid]').forEach(grid=>{grid.innerHTML=sections.map(s=>`<article class="card"><span class="number">${s.id}</span><h3>${s.title}</h3><p>${s.desc}</p><small class="section-domain">${s.domain} · ${s.axisCount} محور</small></article>`).join('')});
 });
