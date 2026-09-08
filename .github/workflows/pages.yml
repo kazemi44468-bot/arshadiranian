@@ -39,6 +39,9 @@ jobs:
           preload='<link rel="preload" href="assets/fonts/shekasteh%20v2.001.woff" as="font" type="font/woff" crossorigin>'
           if preload not in html:
               html=html.replace('<link rel="stylesheet" href="index.css?v=3">',preload+'<link rel="stylesheet" href="index.css?v=4">',1)
+          shell='<script src="assets/js/shell.js?v=2"></script>'
+          if shell not in html:
+              html=html.replace('</body>',shell+'</body>',1)
           html_path.write_text(html,encoding='utf-8')
           PY
       - name: Configure Pages
