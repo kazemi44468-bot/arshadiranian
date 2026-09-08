@@ -1,7 +1,8 @@
-/* Global visual rules: no underlines, usable mobile navigation, and back-to-top. */
+/*
+  Shared visual corrections.
+  No decorative or browser-default underlines are allowed.
+*/
 
-html,
-body,
 a,
 a:hover,
 a:focus,
@@ -9,8 +10,14 @@ a:active {
   text-decoration: none !important;
 }
 
+/* Remove the decorative line that was previously drawn under the hero title. */
+.hero-copy h1 em::after {
+  display: none;
+}
+
 @media (max-width: 900px) {
-  .nav.menu-open .links {
+  .nav.menu-open .links,
+  .nav:focus-within .links {
     display: flex;
     position: absolute;
     top: 76px;
@@ -27,7 +34,8 @@ a:active {
     box-shadow: 0 18px 40px rgba(16, 36, 62, 0.12);
   }
 
-  .nav.menu-open .links a {
+  .nav.menu-open .links a,
+  .nav:focus-within .links a {
     width: 100%;
     padding: 12px 14px;
   }
