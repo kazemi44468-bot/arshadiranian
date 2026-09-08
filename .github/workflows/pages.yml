@@ -40,9 +40,10 @@ jobs:
               html=html.replace('<link rel="stylesheet" href="index.css?v=3">',preload+'<link rel="stylesheet" href="index.css?v=5">',1)
           else:
               html=html.replace('index.css?v=3','index.css?v=5')
-          script='<script src="assets/js/shell.js?v=4"></script>'
-          if script not in html:
-              html=html.replace('</body>',script+'</body>',1)
+          script='<script src="assets/js/shell.js?v=5"></script>'
+          import re
+          html=re.sub(r'<script src="assets/js/shell\.js\?v=[^"]+"></script>','',html)
+          html=html.replace('</body>',script+'</body>',1)
           html_path.write_text(html,encoding='utf-8')
           PY
       - name: Configure Pages
