@@ -3,223 +3,325 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="شرکت جامع راهبردی ارشد ایرانیان؛ اکوسیستمی برای راهبری، سرمایه‌گذاری، فناوری و توسعه ایده‌ها، شرکت‌ها، برندها و پروژه‌ها">
-  <title>شرکت جامع راهبردی ارشد ایرانیان</title>
+  <meta name="description" content="ارشد ایرانیان؛ ایده، سرمایه، فناوری و توسعه در یک اکوسیستم زنده.">
+  <title>ارشد ایرانیان | ایده، سرمایه و توسعه</title>
   <link rel="icon" href="assets/images/favicon.ico">
   <link rel="stylesheet" href="assets/css/site.css">
-  <style>
-    .home-search{padding:45px 0;background:linear-gradient(135deg,#f5faff,#fffdf8)}
-    .home-search-box{display:flex;gap:10px;margin-top:22px;background:#fff;border:1px solid #dce6f1;border-radius:24px;padding:9px;box-shadow:0 16px 45px rgba(27,67,108,.1)}
-    .home-search-box input{flex:1;border:0;outline:0;font:inherit;font-size:18px;padding:16px 18px;background:transparent}
-    .home-search-box a{display:flex;align-items:center;white-space:nowrap}
-    .search-hints{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px;color:#718093;font-size:13px}
-    .search-hints span{background:#fff;border:1px solid #e1e8f0;border-radius:999px;padding:7px 11px}
-    @media(max-width:650px){.home-search-box{display:block}.home-search-box a{justify-content:center;margin-top:8px}}
-  </style>
+  <link rel="stylesheet" href="assets/css/home.css">
 </head>
 <body>
-  <header class="top">
-    <div class="wrap nav">
-      <a class="brand" href="index.html">
-        <img src="arshadiranianlogo.png" alt="ارشد ایرانیان">
+  <header class="home-top">
+    <div class="home-wrap home-nav" id="homeNav">
+      <a class="home-brand" href="index.html">
+        <img src="arshadiranianlogo.png" alt="لوگوی ارشد ایرانیان">
         <span>
           <b>ارشد ایرانیان</b>
           <small>شرکت جامع راهبردی ارشد ایرانیان</small>
         </span>
       </a>
-      <nav class="links">
+      <button class="home-menu" id="homeMenu" type="button"
+        aria-label="باز کردن منو" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="home-links" id="homeLinks" aria-label="ناوبری اصلی">
         <a class="active" href="index.html">خانه</a>
         <a href="pages/about.html">هویت</a>
         <a href="pages/strategy.html">راهبرد</a>
         <a href="pages/ecosystem.html">اکوسیستم</a>
-        <a href="pages/projects.html">پروژه‌ها</a>
-        <a href="pages/search.html">جستجو</a>
-        <a href="pages/investment.html">سرمایه‌گذاری</a>
-        <a href="pages/innovation.html">نوآوری</a>
+        <a href="pages/projects.html">دستاوردها</a>
+        <a href="pages/search.html">کشف</a>
         <a href="pages/contact.html">ارتباط</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="wrap hero-inner">
-        <div>
-          <span class="eyebrow">راهبری راهبردی · سرمایه‌گذاری · فناوری · توسعه</span>
-          <h1>یک شرکت مادر برای ساختن <span>یک اکوسیستم</span></h1>
-          <p>شرکت جامع راهبردی ارشد ایرانیان، بستری برای شکل‌گیری، راهبری و توسعه ایده‌ها، شرکت‌ها، برندها، محصولات و پروژه‌های منتخب است؛ جایی که هر مسیر تازه می‌تواند به بخشی از یک آینده بزرگ‌تر تبدیل شود.</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="pages/ecosystem.html">مشاهده اکوسیستم</a>
-            <a class="btn btn-light" href="pages/search.html">کشف در اقیانوس ارشد</a>
+    <section class="home-hero">
+      <div class="home-wrap hero-layout">
+        <div class="hero-copy">
+          <span class="hero-eyebrow">ایده · سرمایه · فناوری · توسعه</span>
+          <h1>
+            یک جهان برای
+            <em>ساختن آینده</em>
+          </h1>
+          <p>
+            ارشد ایرانیان، نقطه اتصال نگاه راهبردی، سرمایه، فناوری، انسان و
+            بازار است؛ جایی که مسیرهای متفاوت می‌توانند در کنار هم به ارزش
+            تازه‌ای تبدیل شوند.
+          </p>
+          <div class="hero-actions">
+            <a class="home-btn primary" href="pages/ecosystem.html">
+              ورود به جهان ارشد
+            </a>
+            <a class="home-btn light" href="pages/search.html">
+              چیزی را کشف کنید
+            </a>
           </div>
-          <div class="stats">
-            <div class="stat"><strong>۴۲</strong><span>بخش راهبردی</span></div>
-            <div class="stat"><strong>۲۲+</strong><span>حوزه اصلی</span></div>
-            <div class="stat"><strong>۲۷۷</strong><span>محور توسعه</span></div>
-            <div class="stat"><strong>∞</strong><span>ظرفیت‌های آینده</span></div>
+          <div class="hero-caption">
+            <strong>∞</strong>
+            <span>
+              افقی باز برای چیزهایی که امروز وجود دارند و چیزهایی که فردا
+              می‌توانند ساخته شوند.
+            </span>
           </div>
         </div>
-        <div class="hero-art">
-          <div class="ring">
-            <div class="core">ارشد<br>ایرانیان</div>
-            <i class="dot d1"></i>
-            <i class="dot d2"></i>
-            <i class="dot d3"></i>
+
+        <div class="orbit-world" aria-label="نمای مفهومی اکوسیستم">
+          <div class="orbit orbit-a"></div>
+          <div class="orbit orbit-b"></div>
+          <div class="orbit orbit-c"></div>
+          <div class="world-core">
+            <img src="arshadiranianlogo.png" alt="ارشد ایرانیان">
           </div>
+          <a class="world-node node-one" href="pages/investment.html">
+            سرمایه
+            <small>فرصت و ارزش</small>
+          </a>
+          <a class="world-node node-two" href="pages/innovation.html">
+            فناوری
+            <small>ایده و زیرساخت</small>
+          </a>
+          <a class="world-node node-three" href="pages/projects.html">
+            دستاوردها
+            <small>آنچه شکل گرفته</small>
+          </a>
+          <a class="world-node node-four" href="pages/search.html">
+            آینده
+            <small>آنچه هنوز نیامده</small>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="home-search">
-      <div class="wrap">
-        <div class="head">
+    <div class="signal-bar">
+      <div class="signal-track">
+        <span>راهبری</span>
+        <i>·</i>
+        <span>سرمایه</span>
+        <i>·</i>
+        <span>فناوری</span>
+        <i>·</i>
+        <span>انسان</span>
+        <i>·</i>
+        <span>بازار</span>
+        <i>·</i>
+        <span>دانش</span>
+        <i>·</i>
+        <span>نوآوری</span>
+        <i>·</i>
+        <span>توسعه</span>
+        <i>·</i>
+        <span>آینده</span>
+      </div>
+    </div>
+
+    <section class="home-section">
+      <div class="home-wrap">
+        <div class="section-heading">
           <div>
-            <span class="kicker">جستجو و کشف</span>
-            <h2>در اقیانوس ارشد جستجو کنید</h2>
+            <span>نگاه ما</span>
+            <h2>ارزش، همیشه در یک نقطه ساخته نمی‌شود.</h2>
           </div>
-          <p>از یک حوزه و پروژه تا یک ایده یا فرصت آینده؛ مسیر موردنظر خود را پیدا کنید.</p>
+          <p>
+            گاهی یک ایده آغاز راه است، گاهی یک نیاز واقعی، و گاهی فرصتی که
+            هنوز کسی شکل نهایی آن را ندیده است. آنچه اهمیت دارد، دیدن ارتباط
+            میان این قطعات است.
+          </p>
         </div>
-        <div class="home-search-box">
-          <input id="homeSearch" type="search" placeholder="مثلاً: هوش مصنوعی، سرمایه‌گذاری، دانشگاه، چت، برند...">
-          <a class="btn btn-primary" id="homeSearchLink" href="pages/search.html">جستجوی جامع</a>
-        </div>
-        <div class="search-hints">
-          <span>پروژه‌ها</span>
-          <span>شرکت‌ها و برندها</span>
-          <span>حوزه‌های راهبردی</span>
-          <span>ایده‌ها و فرصت‌ها</span>
-          <span>محصولات و خدمات</span>
+
+        <div class="idea-map">
+          <article class="idea-main">
+            <span>01 / پیوند</span>
+            <h3>ایده، وقتی با توانایی‌های درست روبه‌رو شود، می‌تواند بزرگ شود.</h3>
+            <p>
+              سرمایه می‌تواند امکان بدهد؛ فناوری می‌تواند سرعت بدهد؛ انسان
+              می‌تواند معنا و توان اجرا ایجاد کند؛ و بازار می‌تواند یک امکان
+              را به ارزش واقعی تبدیل کند.
+            </p>
+            <div class="idea-lines">
+              <b>ایده</b><i>→</i><b>توان</b><i>→</i><b>ساختن</b>
+              <i>→</i><b>ارزش</b>
+            </div>
+          </article>
+          <article class="idea-card">
+            <span>02 / نگاه</span>
+            <h3>یک مجموعه، فقط آن چیزی نیست که امروز دارد.</h3>
+            <p>
+              بخشی از هویت یک اکوسیستم در ظرفیت‌هایی است که هنوز فرصت ظهور
+              پیدا نکرده‌اند.
+            </p>
+          </article>
+          <article class="idea-card soft">
+            <span>03 / حرکت</span>
+            <h3>هر مسیر تازه، امکان یک مسیر تازه‌تر است.</h3>
+            <p>
+              رشد برای ما فقط بزرگ‌تر شدن نیست؛ پیدا کردن ارتباط‌های تازه و
+              ساختن ارزش‌های ماندگار است.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="wrap">
-        <div class="head">
+    <section class="home-section discovery-section">
+      <div class="home-wrap">
+        <div class="discovery">
+          <div class="discovery-copy">
+            <span>کشف در اقیانوس ارشد</span>
+            <h2>چه چیزی ذهن شما را درگیر کرده است؟</h2>
+            <p>
+              نام یک مجموعه، یک حوزه، یک ایده، یک محصول یا حتی یک کلمه را
+              جستجو کنید و مسیرهای مرتبط را پیدا کنید.
+            </p>
+          </div>
+          <form class="discovery-form" id="discoveryForm">
+            <input id="discoveryInput" type="search"
+              placeholder="مثلاً هوش مصنوعی، سرمایه‌گذاری، دانشگاه..."
+              aria-label="جستجو در اکوسیستم ارشد">
+            <button type="submit">کشف</button>
+          </form>
+          <div class="discovery-tags">
+            <span>مجموعه‌ها</span>
+            <span>برندها</span>
+            <span>محصولات</span>
+            <span>ایده‌ها</span>
+            <span>فرصت‌ها</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="home-wrap">
+        <div class="section-heading">
           <div>
-            <span class="kicker">فلسفه گروه</span>
-            <h2>هر قطعه، آغاز یک مسیر تازه است</h2>
+            <span>چیزهایی که شکل گرفته‌اند</span>
+            <h2>چند ردپا از این مسیر</h2>
           </div>
-          <p>پروژه‌ای که امروز ساخته می‌شود، می‌تواند فردا به یک برند، شرکت، محصول یا بازوی تخصصی تبدیل شود و در کنار دیگر اجزای اکوسیستم ارزش بیشتری ایجاد کند.</p>
+          <p>
+            بعضی مسیرها نام پیدا کرده‌اند؛ بعضی هنوز در حال رشدند. آنچه می‌بینید
+            بخشی از جهانی است که به‌تدریج گسترده‌تر می‌شود.
+          </p>
         </div>
-        <div class="grid grid-3">
-          <article class="card"><div class="iconbox">۱</div><h3>ایده به فرصت</h3><p>ایده‌ها، نیازها و فرصت‌های تازه در کنار ظرفیت‌های موجود دیده و ارزیابی می‌شوند.</p></article>
-          <article class="card"><div class="iconbox">۲</div><h3>فرصت به پروژه</h3><p>مسیرهای منتخب به پروژه‌هایی با هدف، مدل توسعه و جایگاه روشن در اکوسیستم تبدیل می‌شوند.</p></article>
-          <article class="card"><div class="iconbox">۳</div><h3>پروژه به ارزش</h3><p>پروژه‌های موفق می‌توانند به محصول، برند، شرکت، سرمایه‌گذاری یا یک بازوی تخصصی تبدیل شوند.</p></article>
-        </div>
-      </div>
-    </section>
 
-    <section class="darkband">
-      <div class="wrap">
-        <div class="head">
+        <div class="trace-grid">
+          <a class="trace featured" href="pages/projects.html">
+            <small>زیست‌بوم هوش مصنوعی</small>
+            <h3>ZBAI</h3>
+            <p>
+              نگاهی به آینده‌ای که هوش مصنوعی می‌تواند بخشی از زیرساخت زندگی
+              و کسب‌وکار دیجیتال باشد.
+            </p>
+            <b>شناخت بیشتر ←</b>
+          </a>
+          <a class="trace" href="pages/projects.html">
+            <small>هویت دیجیتال</small>
+            <h3>پروفیلا</h3>
+            <p>
+              ساخت تصویری قابل اعتماد از انسان، توانمندی‌ها و مسیر حرفه‌ای او.
+            </p>
+            <b>شناخت بیشتر ←</b>
+          </a>
+          <a class="trace" href="pages/projects.html">
+            <small>ارتباط و گفتگو</small>
+            <h3>ایرانیان چت</h3>
+            <p>
+              تلاشی برای ساختن یک فضای ارتباطی بومی و گشودن مسیری بزرگ‌تر.
+            </p>
+            <b>شناخت بیشتر ←</b>
+          </a>
+        </div>
+
+        <div class="open-horizon">
           <div>
-            <span class="kicker">۲۲ حوزه اصلی</span>
-            <h2>قلمروهای توسعه</h2>
+            <small>افق باز</small>
+            <h3>همه چیز هنوز ساخته نشده است.</h3>
           </div>
-          <p>هر حوزه، یک دروازه برای شکل‌گیری پروژه‌ها، کسب‌وکارها و همکاری‌های جدید است.</p>
-        </div>
-        <div class="grid grid-4">
-          <div class="darkcard"><h3>۰۱ · راهبری و مدیریت</h3><p>استراتژی، سازمان، پروژه، فرآیند و بهره‌وری.</p></div>
-          <div class="darkcard"><h3>۰۲ · سرمایه و اقتصاد</h3><p>سرمایه‌گذاری، توسعه اقتصادی و تأمین مالی پروژه.</p></div>
-          <div class="darkcard"><h3>۰۳ · شرکت و برند</h3><p>ایجاد شرکت، برند، شعب، مشارکت و شبکه کسب‌وکار.</p></div>
-          <div class="darkcard"><h3>۰۴ · نخبگان و ایده</h3><p>استعدادیابی، ایده‌پردازی و تجاری‌سازی.</p></div>
-          <div class="darkcard"><h3>۰۵ · نوآوری و استارتاپ</h3><p>مرکز نوآوری، شتاب‌دهی و سرمایه‌گذاری فناورانه.</p></div>
-          <div class="darkcard"><h3>۰۶ · فناوری و تحول دیجیتال</h3><p>نرم‌افزار، پلتفرم، هوش مصنوعی، داده و اتوماسیون.</p></div>
-          <div class="darkcard"><h3>۰۷ · تجارت</h3><p>خرید، فروش، واردات، صادرات و توزیع.</p></div>
-          <div class="darkcard"><h3>۰۸ · خرده‌فروشی</h3><p>فروشگاه، بازارگاه و تجارت الکترونیک.</p></div>
-          <div class="darkcard"><h3>۰۹ · املاک و مسکن</h3><p>سرمایه‌گذاری، توسعه و مدیریت دارایی.</p></div>
-          <div class="darkcard"><h3>۱۰ · ساخت و زیرساخت</h3><p>طراحی، اجرا، تأمین و پروژه‌های عمرانی.</p></div>
-          <div class="darkcard"><h3>۱۱ · صنعت و معدن</h3><p>تولید، تجهیزات، فرآوری و توسعه صنعتی.</p></div>
-          <div class="darkcard"><h3>۱۲ · کشاورزی و غذا</h3><p>تولید، فرآوری، بسته‌بندی و زنجیره غذا.</p></div>
-          <div class="darkcard"><h3>۱۳ · انرژی و محیط‌زیست</h3><p>انرژی پاک، بهره‌وری و بازیافت.</p></div>
-          <div class="darkcard"><h3>۱۴ · سرمایه انسانی</h3><p>جذب، ارزیابی، آموزش و توسعه کارکنان.</p></div>
-          <div class="darkcard"><h3>۱۵ · آموزش و پژوهش</h3><p>آموزش تخصصی، تحقیق و اندیشکده.</p></div>
-          <div class="darkcard"><h3>۱۶ · مشاوره</h3><p>راهکارهای مدیریتی، اقتصادی و کسب‌وکار.</p></div>
-          <div class="darkcard"><h3>۱۷ · زنجیره تأمین</h3><p>تدارکات، انبار، لجستیک و خدمات سازمانی.</p></div>
-          <div class="darkcard"><h3>۱۸ · رفاه و خدمات اجتماعی</h3><p>خدمات رفاهی و اجتماعی توسعه‌محور.</p></div>
-          <div class="darkcard"><h3>۱۹ · رسانه و صنایع خلاق</h3><p>محتوا، تبلیغات، برندینگ و بازاریابی.</p></div>
-          <div class="darkcard"><h3>۲۰ · گردشگری و رویداد</h3><p>گردشگری، نمایشگاه، همایش و اوقات فراغت.</p></div>
-          <div class="darkcard"><h3>۲۱ · بین‌المللی‌سازی</h3><p>صادرات، شبکه جهانی و پروژه‌های مشترک.</p></div>
-          <div class="darkcard"><h3>۲۲ · آینده‌پژوهی</h3><p>رصد روندها و توسعه منطقه‌ای و آینده‌محور.</p></div>
-        </div>
-        <div class="actions"><a class="btn btn-light" href="pages/strategy.html">ورود به طرح جامع</a></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <div class="head">
-          <div><span class="kicker">پروژه‌های واقعی</span><h2>آنچه تا امروز ساخته‌ایم</h2></div>
-          <p>این نقشه ثابت نیست؛ هر پروژه جدید می‌تواند یک مسیر تازه به اکوسیستم اضافه کند.</p>
-        </div>
-        <div class="grid grid-3">
-          <article class="card"><span class="number">فناوری</span><h3>ایرانیان چت و چتی‌ها</h3><p>پروژه پلتفرم ارتباطی و نمونه پایلوت آن.</p></article>
-          <article class="card"><span class="number">فناوری و دانشگاه</span><h3>اساتید پورتال</h3><p>زیرساخت دیجیتال برای اساتید، پژوهشگران و اکوسیستم دانشگاهی.</p></article>
-          <article class="card"><span class="number">هوش مصنوعی</span><h3>ZBAI</h3><p>ایده و معماری زیست‌بوم هوش مصنوعی.</p></article>
-          <article class="card"><span class="number">هویت دیجیتال</span><h3>پروفیلا</h3><p>پروفایل، رزومه، لینک، QR و هویت دیجیتال.</p></article>
-          <article class="card"><span class="number">اجتماعی</span><h3>یارزی</h3><p>پروژه اجتماعی و توسعه ارتباطات.</p></article>
-          <article class="card"><span class="number">محتوا و میراث</span><h3>از آسمان · شاهد مجازی · بانک شهدا</h3><p>پروژه‌های محتوایی و دیجیتال در حال توسعه.</p></article>
-        </div>
-        <div class="actions"><a class="btn btn-primary" href="pages/projects.html">ورود به پرتفوی پروژه‌ها</a></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <div class="head">
-          <div><span class="kicker">مسیر رشد</span><h2>از پروژه‌های امروز تا گروه آینده</h2></div>
-          <p>ساختار توسعه باید مرحله‌به‌مرحله، قابل سنجش و قابل مدیریت باشد.</p>
-        </div>
-        <div class="timeline">
-          <div class="step"><b>۰۱</b><h3>ساخت زیرساخت مادر</h3><p>هویت، راهبرد، سایت، رجیستری و سیستم مدیریت پروژه‌ها.</p></div>
-          <div class="step"><b>۰۲</b><h3>تکمیل و تجاری‌سازی</h3><p>توسعه محصولات فعلی و تبدیل ایده‌های موفق به کسب‌وکار.</p></div>
-          <div class="step"><b>۰۳</b><h3>ایجاد شرکت‌ها و برندها</h3><p>تفکیک فعالیت‌های دارای ظرفیت مستقل و تشکیل بازوهای تخصصی.</p></div>
-          <div class="step future"><b>۰۴</b><h3>پر کردن قطعات آینده</h3><p>ورود هدفمند به محورهایی که امروز هنوز پروژه‌ای برایشان نداریم.</p></div>
+          <p>
+            آینده این اکوسیستم با ایده‌هایی شکل می‌گیرد که هنوز شاید نامی
+            نداشته باشند.
+          </p>
+          <a class="home-btn light" href="pages/search.html">دیدن افق‌ها</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div>
-          <h3>شرکت جامع راهبردی ارشد ایرانیان</h3>
-          <p>یک معماری مادر برای ساختن، سرمایه‌گذاری کردن و توسعه دادن.</p>
-        </div>
-        <div>
-          <h3>سایت</h3>
-          <a href="pages/about.html">هویت سازمانی</a>
-          <a href="pages/strategy.html">طرح جامع</a>
-          <a href="pages/ecosystem.html">اکوسیستم</a>
-          <a href="pages/projects.html">پروژه‌ها</a>
-          <a href="pages/search.html">جستجوی جامع</a>
-        </div>
-        <div>
-          <h3>توسعه</h3>
-          <a href="pages/investment.html">سرمایه‌گذاری</a>
-          <a href="pages/innovation.html">نوآوری و فناوری</a>
-          <a href="pages/contact.html">ارتباط و همکاری</a>
-        </div>
+  <footer class="home-footer">
+    <div class="home-wrap footer-layout">
+      <div>
+        <b>ارشد ایرانیان</b>
+        <p>
+          نگاه راهبردی برای پیوند دادن ایده، سرمایه، فناوری، انسان و بازار.
+        </p>
       </div>
-      <div class="copy">© شرکت جامع راهبردی ارشد ایرانیان — کلیه حقوق محفوظ است.</div>
+      <div>
+        <a href="pages/about.html">هویت</a>
+        <a href="pages/ecosystem.html">اکوسیستم</a>
+        <a href="pages/projects.html">دستاوردها</a>
+      </div>
+      <div>
+        <a href="pages/search.html">جستجوی جامع</a>
+        <a href="pages/innovation.html">نوآوری</a>
+        <a href="pages/contact.html">ارتباط</a>
+      </div>
+    </div>
+    <div class="home-wrap footer-copy">
+      © ۱۴۰۵ · شرکت جامع راهبردی ارشد ایرانیان
     </div>
   </footer>
 
+  <button class="home-back" id="homeBack" type="button"
+    aria-label="بازگشت به بالای صفحه">↑</button>
+
   <script>
-    const homeSearch = document.getElementById('homeSearch');
-    const homeSearchLink = document.getElementById('homeSearchLink');
-    function syncSearchLink() {
-      const query = encodeURIComponent(homeSearch.value.trim());
-      homeSearchLink.href = query ? `pages/search.html?q=${query}` : 'pages/search.html';
-    }
-    homeSearch.addEventListener('input', syncSearchLink);
-    homeSearch.addEventListener('keydown', event => {
-      if (event.key === 'Enter') {
-        syncSearchLink();
-        window.location.href = homeSearchLink.href;
+    const homeNav = document.getElementById('homeNav');
+    const homeMenu = document.getElementById('homeMenu');
+    const homeLinks = document.getElementById('homeLinks');
+    const homeBack = document.getElementById('homeBack');
+    const discoveryForm = document.getElementById('discoveryForm');
+    const discoveryInput = document.getElementById('discoveryInput');
+
+    homeMenu.addEventListener('click', () => {
+      const isOpen = homeNav.classList.toggle('open');
+      homeMenu.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    homeLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        homeNav.classList.remove('open');
+        homeMenu.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!homeNav.contains(event.target)) {
+        homeNav.classList.remove('open');
+        homeMenu.setAttribute('aria-expanded', 'false');
       }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        homeNav.classList.remove('open');
+        homeMenu.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    window.addEventListener('scroll', () => {
+      homeBack.classList.toggle('show', window.scrollY > 400);
+    });
+
+    homeBack.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    discoveryForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const query = discoveryInput.value.trim();
+      const target = new URL('pages/search.html', window.location.href);
+      if (query) target.searchParams.set('q', query);
+      window.location.href = target.href;
     });
   </script>
 </body>
