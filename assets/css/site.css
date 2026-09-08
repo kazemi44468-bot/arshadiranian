@@ -1,7 +1,4 @@
-/*
-  Global entry point for the site's shared visual system.
-  The legacy rules are preserved separately so the redesign can evolve safely.
-*/
-
+/* Shared visual system for all Arshad Iranian pages. */
 @import url('./site-legacy.css');
 @import url('./site-fixes.css');
+@import url('./shell.css');
