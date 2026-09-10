@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Validate and build homepage runtime
+      - name: Validate source files
         shell: bash
         run: |
           test -f "assets/fonts/shekasteh v2.001.woff"
@@ -28,39 +28,10 @@ jobs:
           test -f "assets/js/home-sections.js"
           test -f "assets/js/home-content-depth.js"
           test -f "assets/js/site-integrity.js"
-          python - <<'PY'
-          from pathlib import Path
-          import re
-          css_path=Path('index.css')
-          css=css_path.read_text(encoding='utf-8')
-          import_rule="@import url('https://v1.fontapi.ir/css/IranNastaliq');"
-          css=css.replace(import_rule,'')
-          css=import_rule+css
-          css_path.write_text(css,encoding='utf-8')
-          html_path=Path('index.html')
-          html=html_path.read_text(encoding='utf-8')
-          preload='<link rel="preload" href="assets/fonts/shekasteh%20v2.001.woff" as="font" type="font/woff" crossorigin>'
-          if preload not in html:
-              html=html.replace('<link rel="stylesheet" href="index.css?v=3">',preload+'<link rel="stylesheet" href="index.css?v=5">',1)
-          else:
-              html=html.replace('index.css?v=3','index.css?v=5')
-          enhancement='<link rel="stylesheet" href="assets/css/home-sections.css?v=1">'
-          if enhancement not in html:
-              html=html.replace('</head>',enhancement+'</head>',1)
-          html=re.sub(r'<script src="assets/js/shell\.js\?v=[^"]+"></script>','',html)
-          html=re.sub(r'<script src="assets/js/home-sections\.js\?v=[^"]+"></script>','',html)
-          html=re.sub(r'<script src="assets/js/home-content-depth\.js\?v=[^"]+"></script>','',html)
-          html=re.sub(r'<script src="assets/js/site-integrity\.js\?v=[^"]+"></script>','',html)
-          html=html.replace('</body>','<script src="assets/js/shell.js?v=6"></script><script src="assets/js/home-sections.js?v=1"></script><script src="assets/js/home-content-depth.js?v=1"></script><script src="assets/js/site-integrity.js?v=1"></script></body>',1)
-          html_path.write_text(html,encoding='utf-8')
-          for path in Path('pages').glob('*.html'):
-              text=path.read_text(encoding='utf-8')
-              src='../assets/js/site-integrity.js?v=1'
-              tag=f'<script src="{src}"></script>'
-              if 'site-integrity.js' not in text:
-                  text=text.replace('</body>',tag+'</body>',1)
-                  path.write_text(text,encoding='utf-8')
-          PY
+          test -f "assets/js/shell.js"
+          test -f "assets/css/pages.css"
+          test -f "assets/css/home-sections.css"
+          test -f "index.html"
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
