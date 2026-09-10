@@ -4,7 +4,7 @@ on:
     branches: [main]
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 concurrency:
@@ -28,6 +28,7 @@ jobs:
           test -f "assets/js/home-sections.js"
           python - <<'PY'
           from pathlib import Path
+          import re
           css_path=Path('index.css')
           css=css_path.read_text(encoding='utf-8')
           import_rule="@import url('https://v1.fontapi.ir/css/IranNastaliq');"
@@ -44,12 +45,23 @@ jobs:
           enhancement='<link rel="stylesheet" href="assets/css/home-sections.css?v=1">'
           if enhancement not in html:
               html=html.replace('</head>',enhancement+'</head>',1)
-          import re
           html=re.sub(r'<script src="assets/js/shell\.js\?v=[^"]+"></script>','',html)
           html=re.sub(r'<script src="assets/js/home-sections\.js\?v=[^"]+"></script>','',html)
           html=html.replace('</body>','<script src="assets/js/shell.js?v=6"></script><script src="assets/js/home-sections.js?v=1"></script></body>',1)
           html_path.write_text(html,encoding='utf-8')
           PY
+      - name: Persist the built homepage source
+        shell: bash
+        run: |
+          if git diff --quiet -- index.html index.css; then
+            echo "Homepage source already matches the Pages runtime."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add index.html index.css
+            git commit -m "Sync homepage source with Pages runtime"
+            git push origin HEAD:main
+          fi
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
