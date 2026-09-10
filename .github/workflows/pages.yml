@@ -32,6 +32,18 @@ jobs:
           test -f "assets/css/pages.css"
           test -f "assets/css/home-sections.css"
           test -f "index.html"
+      - name: Restore homepage runtime
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path=Path("index.html")
+          html=path.read_text(encoding="utf-8")
+          tag='<script src="assets/js/shell.js?v=7"></script>'
+          if tag not in html:
+              html=html.replace("</body>",tag+"</body>",1)
+              path.write_text(html,encoding="utf-8")
+          PY
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
