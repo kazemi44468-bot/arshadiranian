@@ -26,6 +26,7 @@ jobs:
           test -f "assets/fonts/shekasteh v2.001.ttf"
           test -f "assets/fonts/shekasteh v2.001.eot"
           test -f "assets/js/home-sections.js"
+          test -f "assets/js/home-content-depth.js"
           python - <<'PY'
           from pathlib import Path
           css_path=Path('index.css')
@@ -47,7 +48,8 @@ jobs:
           import re
           html=re.sub(r'<script src="assets/js/shell\.js\?v=[^"]+"></script>','',html)
           html=re.sub(r'<script src="assets/js/home-sections\.js\?v=[^"]+"></script>','',html)
-          html=html.replace('</body>','<script src="assets/js/shell.js?v=6"></script><script src="assets/js/home-sections.js?v=1"></script></body>',1)
+          html=re.sub(r'<script src="assets/js/home-content-depth\.js\?v=[^"]+"></script>','',html)
+          html=html.replace('</body>','<script src="assets/js/shell.js?v=6"></script><script src="assets/js/home-sections.js?v=1"></script><script src="assets/js/home-content-depth.js?v=1"></script></body>',1)
           html_path.write_text(html,encoding='utf-8')
           PY
       - name: Configure Pages
