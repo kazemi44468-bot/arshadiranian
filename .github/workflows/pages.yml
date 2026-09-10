@@ -25,6 +25,7 @@ jobs:
           test -f "assets/fonts/shekasteh v2.001.woff"
           test -f "assets/fonts/shekasteh v2.001.ttf"
           test -f "assets/fonts/shekasteh v2.001.eot"
+          test -f "assets/fonts/irannastaliq.woff"
           test -f "assets/js/home-sections.js"
           python - <<'PY'
           from pathlib import Path
@@ -33,7 +34,10 @@ jobs:
           css=css_path.read_text(encoding='utf-8')
           import_rule="@import url('https://v1.fontapi.ir/css/IranNastaliq');"
           css=css.replace(import_rule,'')
-          css=import_rule+css
+          css=re.sub(r"url\(['\"]assets/fonts/irannastaliq\.ttf['\"]\)\s*format\(['\"]truetype['\"]\),?",'',css,flags=re.I)
+          css=re.sub(r",?url\(['\"]assets/fonts/irannastaliq\.eot['\"]\)\s*format\(['\"]embedded-opentype['\"]\)",'',css,flags=re.I)
+          css=re.sub(r"@font-face\{font-family:'Iran Nastaliq';src:([^}]+)\}",lambda m:"@font-face{font-family:'Iran Nastaliq';src:url('assets/fonts/irannastaliq.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}",css,count=1)
+          css=css.lstrip()
           css_path.write_text(css,encoding='utf-8')
           html_path=Path('index.html')
           html=html_path.read_text(encoding='utf-8')

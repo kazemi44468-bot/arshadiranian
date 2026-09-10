@@ -1,5 +1,7 @@
 /* Shared visual system for all Arshad Iranian pages. */
 @import url('./site-legacy.css');
 @import url('./site-fixes.css');
-@import url('./shell.css');
-@import url('./pages.css');
+@font-face{font-family:'Iran Nastaliq';src:url('../fonts/irannastaliq.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Shekasteh';src:url('../fonts/shekasteh%20v2.001.woff') format('woff'),url('../fonts/shekasteh%20v2.001.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Vazir';src:url('../fonts/Vazir.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Vazir';src:url('../fonts/Vazir-Bold.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
