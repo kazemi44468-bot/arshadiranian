@@ -55,17 +55,26 @@ jobs:
           html=re.sub(r'<script src="assets/js/home4-curation\.js\?v=[^"]+"></script>','',html)
           html=html.replace('</body>','<script src="assets/js/shell.js?v=6"></script><script src="assets/js/home-sections.js?v=1"></script><script src="assets/js/home4-curation.js?v=1"></script></body>',1)
           html_path.write_text(html,encoding='utf-8')
+          for path in Path('pages').glob('*.html'):
+              text=path.read_text(encoding='utf-8')
+              text=re.sub(r'<header\s+class="top">.*?</header>','',text,flags=re.S|re.I)
+              text=re.sub(r'<footer\s+class="footer">.*?</footer>','',text,flags=re.S|re.I)
+              text=re.sub(r'<div\s+class="notice">.*?</div>','',text,flags=re.S|re.I)
+              text=re.sub(r'<script\s+src="\.\./assets/js/shell(?:\?v=[^"]+)?\.js"></script>','',text,flags=re.I)
+              text=re.sub(r'<script\s+src="\.\./assets/js/shell\.js(?:\?v=[^"]+)?"></script>','',text,flags=re.I)
+              text=text.replace('</body>','<script src="../assets/js/shell.js?v=12"></script></body>',1)
+              path.write_text(text,encoding='utf-8')
           PY
-      - name: Persist the built homepage source
+      - name: Persist the built source
         shell: bash
         run: |
-          if git diff --quiet -- index.html index.css; then
-            echo "Homepage source already matches the Pages runtime."
+          if git diff --quiet -- index.html index.css pages; then
+            echo "Source already matches the Pages runtime."
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add index.html index.css
-            git commit -m "Sync homepage source with Pages runtime"
+            git add index.html index.css pages
+            git commit -m "Sync rendered source and internal navigation"
             git push origin HEAD:main
           fi
       - name: Configure Pages
