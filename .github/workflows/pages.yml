@@ -20,7 +20,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Validate site sources
-        shell: bash
         run: |
           test -f "index.html"
           test -f "index.css"
@@ -33,10 +32,13 @@ jobs:
           test -f "pages/ecosystem.html"
           test -f "pages/projects.html"
           grep -q "assets/fonts/irannastaliq.woff" index.css
-          grep -q "mobile-bottom-nav" assets/css/pages.css
+          grep -q "mobile-bottom-nav" assets/js/shell.js
           grep -q "گروه برنامه‌ریزی و سرمایه‌گذاری ارشد" pages/ecosystem.html
           grep -q "زیست‌بوم هوشمند فناوری" pages/ecosystem.html
-          grep -q "assets/js/shell.js?v=12" pages/ecosystem.html
+          grep -q "assets/js/shell.js?v=15" pages/ecosystem.html
+          grep -q "assets/js/shell.js?v=15" pages/projects.html
+          ! grep -q "۴۲ بخش راهبردی و صدها محور توسعه" pages/ecosystem.html
+          ! grep -q "این بخش فقط مجموعه‌ها و هسته‌های واقعی را نشان می‌دهد" pages/ecosystem.html
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
