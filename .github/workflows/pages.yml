@@ -4,7 +4,7 @@ on:
     branches: [main]
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 concurrency:
@@ -19,78 +19,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Validate and build homepage runtime
+      - name: Validate site sources
         shell: bash
         run: |
+          test -f "index.html"
+          test -f "index.css"
           test -f "assets/fonts/shekasteh v2.001.woff"
-          test -f "assets/fonts/shekasteh v2.001.ttf"
-          test -f "assets/fonts/shekasteh v2.001.eot"
           test -f "assets/fonts/irannastaliq.woff"
+          test -f "assets/js/shell.js"
           test -f "assets/js/home-sections.js"
           test -f "assets/js/home4-curation.js"
-          python - <<'PY'
-          from pathlib import Path
-          import re
-          css_path=Path('index.css')
-          css=css_path.read_text(encoding='utf-8')
-          import_rule="@import url('https://v1.fontapi.ir/css/IranNastaliq');"
-          css=css.replace(import_rule,'')
-          css=re.sub(r"url\(['\"]assets/fonts/irannastaliq\.ttf['\"]\)\s*format\(['\"]truetype['\"]\),?",'',css,flags=re.I)
-          css=re.sub(r",?url\(['\"]assets/fonts/irannastaliq\.eot['\"]\)\s*format\(['\"]embedded-opentype['\"]\)",'',css,flags=re.I)
-          css=re.sub(r"@font-face\{font-family:'Iran Nastaliq';src:([^}]+)\}",lambda m:"@font-face{font-family:'Iran Nastaliq';src:url('assets/fonts/irannastaliq.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}",css,count=1)
-          css=css.lstrip()
-          css_path.write_text(css,encoding='utf-8')
-
-          html_path=Path('index.html')
-          html=html_path.read_text(encoding='utf-8')
-          preload='<link rel="preload" href="assets/fonts/shekasteh%20v2.001.woff" as="font" type="font/woff" crossorigin>'
-          if preload not in html:
-              html=html.replace('<link rel="stylesheet" href="index.css?v=3">',preload+'<link rel="stylesheet" href="index.css?v=5">',1)
-          else:
-              html=html.replace('index.css?v=3','index.css?v=5')
-          enhancement='<link rel="stylesheet" href="assets/css/home-sections.css?v=1">'
-          if enhancement not in html:
-              html=html.replace('</head>',enhancement+'</head>',1)
-          html=re.sub(r'<script src="assets/js/shell\.js\?v=[^"]+"></script>','',html)
-          html=re.sub(r'<script src="assets/js/home-sections\.js\?v=[^"]+"></script>','',html)
-          html=re.sub(r'<script src="assets/js/home4-curation\.js\?v=[^"]+"></script>','',html)
-          html=html.replace('</body>','<script src="assets/js/shell.js?v=6"></script><script src="assets/js/home-sections.js?v=1"></script><script src="assets/js/home4-curation.js?v=1"></script></body>',1)
-
-          # Mirror the curated runtime markup into the committed homepage source.
-          curation=Path('assets/js/home4-curation.js').read_text(encoding='utf-8')
-          m=re.search(r'c\.innerHTML=`(.*?)`;',curation,re.S)
-          if not m:
-              raise SystemExit('Could not extract curated section 4 markup')
-          curated_inner=m.group(1)
-          curated_section='<section id="collections" class="section collections">'+curated_inner+'</section>'
-          html,n=re.subn(r'<section id="collections" class="section collections">.*?</section>',lambda _:curated_section,html,count=1,flags=re.S)
-          if n!=1:
-              raise SystemExit('Could not replace static section 4')
-          html=html.replace('شماره ثبت: ۶۶۸۹۶۱','شماره ثبت: ۶۶۸۱۴۷')
-          html_path.write_text(html,encoding='utf-8')
-
-          for path in Path('pages').glob('*.html'):
-              text=path.read_text(encoding='utf-8')
-              text=re.sub(r'<header\s+class="top">.*?</header>','',text,flags=re.S|re.I)
-              text=re.sub(r'<footer\s+class="footer">.*?</footer>','',text,flags=re.S|re.I)
-              text=re.sub(r'<div\s+class="notice">.*?</div>','',text,flags=re.S|re.I)
-              text=re.sub(r'<script\s+src="\.\./assets/js/shell(?:\?v=[^"]+)?\.js"></script>','',text,flags=re.I)
-              text=re.sub(r'<script\s+src="\.\./assets/js/shell\.js(?:\?v=[^"]+)?"></script>','',text,flags=re.I)
-              text=text.replace('</body>','<script src="../assets/js/shell.js?v=12"></script></body>',1)
-              path.write_text(text,encoding='utf-8')
-          PY
-      - name: Persist the built source
-        shell: bash
-        run: |
-          if git diff --quiet -- index.html index.css pages; then
-            echo "Source already matches the Pages runtime."
-          else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add index.html index.css pages
-            git commit -m "Sync rendered source and internal navigation"
-            git push origin HEAD:main
-          fi
+          test -f "assets/css/pages.css"
+          test -f "pages/ecosystem.html"
+          test -f "pages/projects.html"
+          grep -q "assets/fonts/irannastaliq.woff" index.css
+          grep -q "mobile-bottom-nav" assets/css/pages.css
+          grep -q "گروه برنامه‌ریزی و سرمایه‌گذاری ارشد" pages/ecosystem.html
+          grep -q "زیست‌بوم هوشمند فناوری" pages/ecosystem.html
+          grep -q "assets/js/shell.js?v=12" pages/ecosystem.html
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
