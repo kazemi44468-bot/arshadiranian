@@ -36,18 +36,21 @@ jobs:
           grep -q "mobile-bottom-nav" assets/js/shell.js
           grep -q "گروه برنامه‌ریزی و سرمایه‌گذاری ارشد" data/collections.js
           grep -q "زیست‌بوم هوشمند فناوری" data/collections.js
-          grep -q "assets/js/shell.js?v=16" pages/ecosystem.html
-          grep -q "assets/js/shell.js?v=16" pages/projects.html
-          grep -q "assets/js/shell.js?v=16" pages/about.html
-          grep -q "assets/js/shell.js?v=16" pages/activities.html
-          grep -q "assets/js/shell.js?v=16" pages/contact.html
-          grep -q "assets/js/shell.js?v=16" pages/innovation.html
-          grep -q "assets/js/shell.js?v=16" pages/investment.html
-          grep -q "assets/js/shell.js?v=16" pages/search.html
-          grep -q "assets/js/shell.js?v=16" pages/showcase.html
-          grep -q "assets/js/shell.js?v=16" pages/strategy.html
+          grep -q "assets/js/shell.js?v=17" pages/ecosystem.html
+          grep -q "assets/js/shell.js?v=17" pages/projects.html
+          grep -q "assets/js/shell.js?v=17" pages/about.html
+          grep -q "assets/js/shell.js?v=17" pages/activities.html
+          grep -q "assets/js/shell.js?v=17" pages/contact.html
+          grep -q "assets/js/shell.js?v=17" pages/innovation.html
+          grep -q "assets/js/shell.js?v=17" pages/investment.html
+          grep -q "assets/js/shell.js?v=17" pages/search.html
+          grep -q "assets/js/shell.js?v=17" pages/showcase.html
+          grep -q "assets/js/shell.js?v=17" pages/strategy.html
           ! grep -q "۴۲ بخش راهبردی و صدها محور توسعه" pages/ecosystem.html
           ! grep -q "این بخش فقط مجموعه‌ها و هسته‌های واقعی را نشان می‌دهد" pages/ecosystem.html
+          ! grep -q "نسخه حقوقی رسمی" pages/about.html
+          ! grep -q "اطلاعات ثبتی در جای درست خود" pages/about.html
+          ! grep -q "رجیستری" pages/projects.html
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
