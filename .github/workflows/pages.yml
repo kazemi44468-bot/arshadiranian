@@ -29,14 +29,23 @@ jobs:
           test -f "assets/js/home-sections.js"
           test -f "assets/js/home4-curation.js"
           test -f "assets/css/pages.css"
+          test -f "data/collections.js"
           test -f "pages/ecosystem.html"
           test -f "pages/projects.html"
           grep -q "assets/fonts/irannastaliq.woff" index.css
           grep -q "mobile-bottom-nav" assets/js/shell.js
-          grep -q "گروه برنامه‌ریزی و سرمایه‌گذاری ارشد" pages/ecosystem.html
-          grep -q "زیست‌بوم هوشمند فناوری" pages/ecosystem.html
-          grep -q "assets/js/shell.js?v=15" pages/ecosystem.html
-          grep -q "assets/js/shell.js?v=15" pages/projects.html
+          grep -q "گروه برنامه‌ریزی و سرمایه‌گذاری ارشد" data/collections.js
+          grep -q "زیست‌بوم هوشمند فناوری" data/collections.js
+          grep -q "assets/js/shell.js?v=16" pages/ecosystem.html
+          grep -q "assets/js/shell.js?v=16" pages/projects.html
+          grep -q "assets/js/shell.js?v=16" pages/about.html
+          grep -q "assets/js/shell.js?v=16" pages/activities.html
+          grep -q "assets/js/shell.js?v=16" pages/contact.html
+          grep -q "assets/js/shell.js?v=16" pages/innovation.html
+          grep -q "assets/js/shell.js?v=16" pages/investment.html
+          grep -q "assets/js/shell.js?v=16" pages/search.html
+          grep -q "assets/js/shell.js?v=16" pages/showcase.html
+          grep -q "assets/js/shell.js?v=16" pages/strategy.html
           ! grep -q "۴۲ بخش راهبردی و صدها محور توسعه" pages/ecosystem.html
           ! grep -q "این بخش فقط مجموعه‌ها و هسته‌های واقعی را نشان می‌دهد" pages/ecosystem.html
       - name: Configure Pages
