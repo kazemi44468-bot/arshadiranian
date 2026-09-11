@@ -40,6 +40,7 @@ jobs:
           css=re.sub(r"@font-face\{font-family:'Iran Nastaliq';src:([^}]+)\}",lambda m:"@font-face{font-family:'Iran Nastaliq';src:url('assets/fonts/irannastaliq.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}",css,count=1)
           css=css.lstrip()
           css_path.write_text(css,encoding='utf-8')
+
           html_path=Path('index.html')
           html=html_path.read_text(encoding='utf-8')
           preload='<link rel="preload" href="assets/fonts/shekasteh%20v2.001.woff" as="font" type="font/woff" crossorigin>'
@@ -54,7 +55,20 @@ jobs:
           html=re.sub(r'<script src="assets/js/home-sections\.js\?v=[^"]+"></script>','',html)
           html=re.sub(r'<script src="assets/js/home4-curation\.js\?v=[^"]+"></script>','',html)
           html=html.replace('</body>','<script src="assets/js/shell.js?v=6"></script><script src="assets/js/home-sections.js?v=1"></script><script src="assets/js/home4-curation.js?v=1"></script></body>',1)
+
+          # Keep the committed homepage source aligned with the curated runtime section.
+          curation=Path('assets/js/home4-curation.js').read_text(encoding='utf-8')
+          m=re.search(r'c\.innerHTML=`(.*?)`;};if\(document\.readyState',curation,re.S)
+          if not m:
+              raise SystemExit('Could not extract curated section 4 markup')
+          curated_inner=m.group(1)
+          curated_section='<section id="collections" class="section collections">'+curated_inner+'</section>'
+          html,n=re.subn(r'<section id="collections" class="section collections">.*?</section>',lambda _:curated_section,html,count=1,flags=re.S)
+          if n!=1:
+              raise SystemExit('Could not replace static section 4')
+          html=html.replace('شماره ثبت: ۶۶۸۹۶۱','شماره ثبت: ۶۶۸۱۴۷')
           html_path.write_text(html,encoding='utf-8')
+
           for path in Path('pages').glob('*.html'):
               text=path.read_text(encoding='utf-8')
               text=re.sub(r'<header\s+class="top">.*?</header>','',text,flags=re.S|re.I)
